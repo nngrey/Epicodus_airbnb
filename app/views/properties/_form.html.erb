@@ -1,0 +1,24 @@
+<%= render 'layouts/error', :object => @property %>
+<%=form_for(@property) do |f| %>
+
+  <div class="form_group">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form_group">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="form_group">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="form_group">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <br>
+<%= f.submit(:class => "btn btn-primary") %>
+<% end %>

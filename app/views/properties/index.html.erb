@@ -1,0 +1,10 @@
+<h1>Available Properties</h1>
+
+<% @properties.each do |property| %>
+  <%= render 'property', property: property %>
+<% end %>
+
+<!--   <%= render @properties %> -->
+
+<%= link_to "Add new property", new_property_path %>
+
