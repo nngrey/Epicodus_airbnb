@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'devise'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 
 group :development do

@@ -1,6 +1,6 @@
 <%= render 'layouts/error', :object => @property %>
-<%=form_for(@property) do |f| %>
 
+<%=form_for @property, :html => { :multipart => true } do |f| %>
   <div class="form_group">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -18,6 +18,10 @@
   <div class="form_group">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image, "Photo" %><br />
+    <%= f.file_field :image %>
   </div>
   <br>
 <%= f.submit(:class => "btn btn-primary") %>

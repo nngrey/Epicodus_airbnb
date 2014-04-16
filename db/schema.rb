@@ -11,18 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140416180914) do
+ActiveRecord::Schema.define(version: 20140416190344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "properties", force: true do |t|
     t.text     "description"
-    t.decimal  "price",       precision: 7, scale: 2
+    t.decimal  "price",              precision: 7, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address"
     t.string   "title"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end
