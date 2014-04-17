@@ -4,8 +4,16 @@
     <p><%= image_tag @property.image.url(:medium) %></p>
     <p><%= @property.address %></p>
     <p><%= @property.description %></p>
-    <p><%= @property.price %></p>
+    <p><%= number_to_currency(@property.price) %></p>
+
+    <p><%= link_to "Edit Property", edit_property_path(@property), :class => "btn btn-primary" %></p>
+    <p><%= link_to "Delete Property", property_path(@property),
+                                data: { confirm: 'You sure?' },
+                                method: "delete",
+                                :class => "btn btn-danger" %></p>
   </div>
+
+
   <div class="col-md-4">
     <%= render 'reservation_form' %>
   </div>

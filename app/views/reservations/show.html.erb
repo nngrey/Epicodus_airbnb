@@ -4,7 +4,7 @@
     <p><%= @reservation.property.address %></p>
     <p><%= @reservation.check_in %></p>
     <p><%= @reservation.check_out%></p>
-    <p><%= @reservation.property.price %></p>
+    <p><%= number_to_currency(@reservation.property.price) %></p>
   </div>
   <div class="col-md-4">
   </div>
