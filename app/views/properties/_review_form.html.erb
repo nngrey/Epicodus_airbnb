@@ -1,0 +1,17 @@
+<%= render 'layouts/error', :object => @review %>
+
+<%=form_for @review do |f| %>
+
+  <div class="form_group">
+    <%= f.hidden_field :property_id, :value => @property.id %>
+  </div>
+
+  <div class="form_group">
+    <%= f.label :content, "Your review:" %><br />
+    <%= f.text_field :content %>
+  </div>
+
+
+  <br>
+<%= f.submit(:class => "btn btn-primary") %>
+<% end %>
