@@ -2,14 +2,6 @@
 
 <%=form_for @reservation do |f| %>
 
-  <% if @current_user %>
-
-    <div class="form_group">
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-    </div>
-
-  <% end %>
-
   <div class="form_group">
     <%= f.hidden_field :property_id, :value => @property.id %>
   </div>

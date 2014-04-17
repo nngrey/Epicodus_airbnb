@@ -10,8 +10,10 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    user_id = current_user.id
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
+      @reservation.update({:user_id => user_id})
       flash[:notice] = "Reservation created!"
       redirect_to reservation_path(@reservation)
     else
