@@ -5,7 +5,7 @@ describe Property do
     it 'allows the user to return to the home page' do
       property = FactoryGirl.create :property
       visit property_path(property)
-      save_and_open_page
+      # save_and_open_page
       click_link 'Airbnb'
       page.should have_content 'Available Properties'
     end
@@ -16,7 +16,7 @@ describe Property do
       property = FactoryGirl.create :property
       visit properties_path
       click_link 'Great House'
-      save_and_open_page
+      # save_and_open_page
       page.should have_content 'nice place'
     end
   end

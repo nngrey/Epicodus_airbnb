@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  validates :name, presence: true
+
   after_create :send_welcome_message
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -7,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :properties
   has_many :reservations
+  has_many :reviews
 
   private
 
