@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :properties
-  # has_many :reservations
+  has_many :reservations
 
 end
