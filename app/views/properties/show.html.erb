@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-5 col-md-offset-1">
     <h1><%= @property.title %></h1>
     <p><%= image_tag @property.image.url(:medium) %></p>
     <p><%= @property.address %></p>
@@ -13,9 +13,19 @@
                                 :class => "btn btn-danger" %></p>
   </div>
 
-
-  <div class="col-md-4">
+<br>
+<br>
+  <div class="col-md-5 col-md-offset-1">
     <%= render 'reservation_form' %>
+    <br>
+    <br>
+    <br>
+    <%= render 'review_form' %>
+    <ul class="list-unstyled">
+      <% Review.where(property_id: @property.id).each do |review| %>
+      <li><%= review.content %></li>
+      <%end%>
+    </ul>
   </div>
 </div>
 
