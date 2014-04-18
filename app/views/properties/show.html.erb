@@ -6,21 +6,32 @@
     <p><%= @property.description %></p>
     <p><%= number_to_currency(@property.price) %></p>
 
-    <p><%= link_to "Edit Property", edit_property_path(@property), :class => "btn btn-primary" %></p>
-    <p><%= link_to "Delete Property", property_path(@property),
+    <% if can? :edit, @property %>
+      <p><%= link_to "Edit Property", edit_property_path(@property), :class => "btn btn-primary" %></p>
+    <% end %>
+
+    <% if can? :delete, @property %>
+      <p><%= link_to "Delete Property", property_path(@property),
                                 data: { confirm: 'You sure?' },
                                 method: "delete",
                                 :class => "btn btn-danger" %></p>
+    <% end %>
+
   </div>
 
 <br>
 <br>
   <div class="col-md-5 col-md-offset-1">
+    <% if can? :create, @reservation %>
     <%= render 'reservations/form' %>
+    <% end %>
+
     <br>
     <br>
-    <br>
+    <% if can? :create, @review %>
     <%= render 'reviews/form' %>
+    <% end %>
+    <h3>Reviews:</h3>
     <ul class="list-unstyled" id="review_list">
       <% Review.where(property_id: @property.id).each do |review| %>
       <li><%= review.content %></li>

@@ -12,6 +12,7 @@ class ReservationsController < ApplicationController
   def create
     user_id = current_user.id
     @reservation = Reservation.new(reservation_params)
+    authorize! :create, @property
     if @reservation.save
       @reservation.update({:user_id => user_id})
       flash[:notice] = "Reservation created!"
@@ -25,9 +26,11 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    authorize! :edit, @property
   end
 
   def update
+    authorize! :update, @property
     if @reservation.update(reservation_params)
       flash[:notice] = "Reservation updated!"
       redirect_to reservation_path
@@ -37,6 +40,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @property
     @reservation.destroy
     flash[:notice] = "Your reservation has been deleted."
     redirect_to properties_path

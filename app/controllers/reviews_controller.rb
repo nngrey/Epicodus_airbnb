@@ -10,11 +10,10 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    # user_id = current_user.id
     @review = Review.new(review_params)
+    authorize! :create, @property
     if @review.save
-      # @review.update({:user_id => user_id})
-      # flash[:notice] = "New review created"
+      flash[:notice] = "New review created"
       respond_to do |format|
         format.html { redirect_to property_path(@review.property) }
         format.js
@@ -25,10 +24,12 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    authorize! :edit, @property
   end
 
   def update
     @review = Review.update(review_params)
+    authorize! :update, @property
     if @review.save
       flash[:notice] = "Review updated."
       redirect_to property_path
@@ -38,6 +39,7 @@ class ReviewsController < ApplicationController
   end
 
     def destroy
+      authorize! :update, @property
       @review.destroy
       redirect_to property_path, notice: "Review destroyed!"
     end
