@@ -1,6 +1,6 @@
 <%= render 'layouts/error', :object => @review %>
 
-<%=form_for @review do |f| %>
+<%=form_for @review, remote: true do |f| %>
 
   <div class="form_group">
     <%= f.hidden_field :property_id, :value => @property.id %>

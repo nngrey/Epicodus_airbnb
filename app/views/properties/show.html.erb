@@ -16,12 +16,12 @@
 <br>
 <br>
   <div class="col-md-5 col-md-offset-1">
-    <%= render 'reservation_form' %>
+    <%= render 'reservations/form' %>
     <br>
     <br>
     <br>
-    <%= render 'review_form' %>
-    <ul class="list-unstyled">
+    <%= render 'reviews/form' %>
+    <ul class="list-unstyled" id="review_list">
       <% Review.where(property_id: @property.id).each do |review| %>
       <li><%= review.content %></li>
       <%end%>

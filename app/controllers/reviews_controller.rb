@@ -10,12 +10,15 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    user_id = current_user.id
+    # user_id = current_user.id
     @review = Review.new(review_params)
     if @review.save
-      @review.update({:user_id => user_id})
-      flash[:notice] = "New review created"
-      redirect_to property_path(@review.property)
+      # @review.update({:user_id => user_id})
+      # flash[:notice] = "New review created"
+      respond_to do |format|
+        format.html { redirect_to property_path(@review.property) }
+        format.js
+      end
     else
       render 'new'
     end
