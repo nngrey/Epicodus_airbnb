@@ -24,7 +24,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
+        <div class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.
           <%= link_to 'Edit profile', edit_user_registration_path, :class => "btn btn-primary navbar-btn" %>
@@ -33,12 +33,14 @@
           <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-primary navbar-btn"%>
           <%= link_to "Login", new_user_session_path, :class => "btn btn-primary navbar-btn" %>
         <% end %>
-      </ul>
+      </div>
 
 
-        <ul class="nav navbar-nav">
+      <div class="nav navbar-nav">
+        <% if can? :create, @property %>
+          <%= link_to "Add property", new_property_path, :class => "btn btn-default navbar-btn" %>
+        <% end %>
 
-          <li><button type="button" class="btn btn-default navbar-btn">Sign in</button></li>
  <!--          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
             <ul class="dropdown-menu">

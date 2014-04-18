@@ -1,15 +1,11 @@
 <br>
 <h2>Available Properties</h2>
 <hr>
+
+<div class="row">
+  <% @properties.each do |property| %>
+    <%= render 'property', property: property %>
+  <% end %>
+</div>
 <br>
-
-<% @properties.each do |property| %>
-  <%= render 'property', property: property %>
-<% end %>
-
-<br>
-
-<% if can? :create, @property %>
-<%= link_to "Add new property", new_property_path, :class => "btn btn-primary"  %>
-<% end %>
 
