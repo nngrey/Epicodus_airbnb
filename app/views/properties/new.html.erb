@@ -1,3 +1,28 @@
-<h2>Add a new property!</h2>
-<br>
-<%= render 'form' %>
+<div class="row">
+  <div class="col-md-4 col-md-offset-2">
+    <h2>Add a new property!</h2>
+    <br>
+    <%= render 'form' %>
+  </div>
+  <div class="col-md-5">
+    <h3>Your Properties</h3>
+
+    <% Property.where(user_id: current_user.id).each do |p| %>
+      <h4><%= p.title %></h4>
+      <p><%= image_tag p.image.url(:medium) %></p>
+      <p><%= p.address %></p>
+      <p><%= p.description %></p>
+
+      <% if can? :edit, p %>
+        <%= link_to "Edit Property", edit_property_path(p), :class => "btn btn-primary" %>
+      <% end %>
+
+      <% if can? :delete, p %>
+        <%= link_to "Delete Property", property_path(p),
+                                data: { confirm: 'You sure?' },
+                                method: "delete",
+                                :class => "btn btn-danger" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

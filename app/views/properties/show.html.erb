@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-5 col-md-offset-1">
+  <div class="col-md-5 col-md-offset-2">
     <h1><%= @property.title %></h1>
     <p><%= image_tag @property.image.url(:medium) %></p>
     <p><%= @property.address %></p>
@@ -21,7 +21,7 @@
 
 <br>
 <br>
-  <div class="col-md-5 col-md-offset-1">
+  <div class="col-md-5">
     <% if can? :create, @reservation %>
     <%= render 'reservations/form' %>
     <% end %>

@@ -3,6 +3,10 @@
 <%=form_for @reservation do |f| %>
 
   <div class="form_group">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="form_group">
     <%= f.hidden_field :property_id, :value => @property.id %>
   </div>
 

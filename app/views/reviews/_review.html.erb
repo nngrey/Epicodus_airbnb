@@ -1,3 +1,1 @@
-<%= form_for review, remote: true do |f| %>
-  <%= review.content %>
-<% end %>
+  <strong><em><%= review.user.name %> says:</em></strong> <%= review.content %>

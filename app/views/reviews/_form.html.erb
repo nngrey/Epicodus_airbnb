@@ -3,6 +3,10 @@
 <%=form_for @review, remote: true do |f| %>
 
   <div class="form_group">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="form_group">
     <%= f.hidden_field :property_id, :value => @property.id %>
   </div>
 
@@ -10,8 +14,6 @@
     <%= f.label :content, "Your review:" %><br />
     <%= f.text_field :content %>
   </div>
-
-
   <br>
-<%= f.submit(:class => "btn btn-primary") %>
+  <%= f.submit(:class => "btn btn-primary") %>
 <% end %>

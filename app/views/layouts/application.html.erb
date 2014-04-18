@@ -35,10 +35,9 @@
         <% end %>
       </div>
 
-
       <div class="nav navbar-nav">
         <% if can? :create, @property %>
-          <%= link_to "Add property", new_property_path, :class => "btn btn-default navbar-btn" %>
+          <%= link_to "Manage Properties", new_property_path, :class => "btn btn-default navbar-btn" %>
         <% end %>
 
  <!--          <li class="dropdown">
