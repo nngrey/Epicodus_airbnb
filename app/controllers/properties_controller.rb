@@ -2,6 +2,7 @@ class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
 
   def index
+    # @user = current_user
     @properties = Property.all
   end
 
@@ -53,7 +54,7 @@ class PropertiesController < ApplicationController
   end
 
   def property_params
-    params.require(:property).permit(:description, :price, :title, :address, :image)
+    params.require(:property).permit(:description, :price, :title, :address, :image, :user_id)
   end
 
 end

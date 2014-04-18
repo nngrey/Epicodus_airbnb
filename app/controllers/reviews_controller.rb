@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
   end
 
     def destroy
-      authorize! :update, @property
+    authorize! :update, @property
       @review.destroy
       redirect_to property_path, notice: "Review destroyed!"
     end

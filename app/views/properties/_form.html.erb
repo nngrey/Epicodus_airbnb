@@ -2,6 +2,10 @@
 
 <%=form_for @property, :html => { :multipart => true } do |f| %>
   <div class="form_group">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+
+  <div class="form_group">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
