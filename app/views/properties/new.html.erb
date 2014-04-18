@@ -7,7 +7,7 @@
   <div class="col-md-5">
     <h3>Your Properties</h3>
 
-    <% Property.where(user_id: current_user.id).each do |p| %>
+    <% current_user.properties.each do |p| %>
       <h4><%= p.title %></h4>
       <p><%= image_tag p.image.url(:medium) %></p>
       <p><%= p.address %></p>
