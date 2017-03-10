@@ -1,4 +1,4 @@
-##Epicodus Exercise Using Rails, Paperclip, & Devise
+#Epicodus Exercise Using Rails, Paperclip, & Devise
 
 ##Airbnb clone
 
